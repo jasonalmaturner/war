@@ -37,11 +37,13 @@ $(document).ready(function() {
 			if (i in array) { 
 		 		copy.push(array[i]); 
 		 		delete array[i]; 
-		 		n--; 
+		 		n--;
 		 	} 
-		} 
+		}
 		return copy; 
 	}
+
+	deck = shuffle(deck);
 	
 	var cards_player_1 = [];
 	var cards_player_2 = [];
@@ -50,6 +52,16 @@ $(document).ready(function() {
 		cards_player_1 = array.slice(0, 26);
 		cards_player_2 = array.slice(26);
 	}
+
+	var deal2 = function(array){
+		for(var i = 0; i < array.length; i++) {
+			if(i % 2 === 0) {
+				cards_player_1.push(array[i]);
+			} else {
+				cards_player_2.push(array[i]);
+			};
+		};
+	};
 	
 	deal(shuffle(deck));
 
@@ -128,7 +140,11 @@ $(document).ready(function() {
 			cards_player_2.splice(0, 1);
 		}
 		else if(compare === false){
-			tie();
+			cards_player_1.push(cards_player_1[0]);
+			cards_player_2.push(cards_player_2[0]);
+			cards_player_1.shift();
+			cards_player_2.shift();
+			// tie();
 		}
 	
 		//this function (defined below) will continue to the next turn
