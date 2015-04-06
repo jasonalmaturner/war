@@ -47,7 +47,7 @@ $(document).ready(function() {
 	
 	var cards_player_1 = [];
 	var cards_player_2 = [];
-	// write a function called deal that will evently divide the deck up between the two players
+	// write a function called deal that will evenly divide the deck up between the two players
 	
 	
 	//create a function (algorithm) called "war" that takes two cards as parameters, compares them and returns a winner. A tie should return false.
